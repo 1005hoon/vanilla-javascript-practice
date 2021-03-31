@@ -102,3 +102,38 @@ form button:hover {
   transform: translateY(8rem) rotateZ(20deg);
   opacity: 0;
 }
+
+.filter {
+  margin: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.filter-todo {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  outline: none;
+  border: none;
+  color: #ff6f47;
+  width: 11rem;
+  cursor: pointer;
+  padding: 1rem;
+  font-size: 1.2rem;
+}
+
+.filter:after {
+  content: "\25bc";
+  position: absolute;
+  background: #ff6f47;
+  top: 0;
+  right: 0;
+  padding: 1rem;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.filter:hover::after {
+  background: #fff;
+  color: #ff6f47;
+}

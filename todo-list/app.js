@@ -1,11 +1,13 @@
 // selectors
 const todoInput = document.querySelector(".todo-input");
 const todoButton = document.querySelector(".todo-button");
+const todoFilter = document.querySelector(".filter");
 const todoList = document.querySelector(".todo-list");
 
 // event listeners
 todoList.addEventListener("click", buttonClickHandler);
 todoButton.addEventListener("click", addTodo);
+todoFilter.addEventListener("change", filterTodo);
 
 // controller functions
 
@@ -56,4 +58,28 @@ function buttonClickHandler(e) {
     const todo = buttonClicked.parentElement;
     todo.classList.toggle("completed");
   }
+}
+
+function filterTodo(e) {
+  const todos = todoList.childNodes;
+  todos.forEach((todo) => {
+    switch (e.target.value) {
+      case "all":
+        todo.style.display = "flex";
+        break;
+      case "completed":
+        if (todo.classList.contains("completed")) {
+          todo.style.display = "flex";
+        } else {
+          todo.style.display = "none";
+        }
+        break;
+      case "incomplete":
+        if (!todo.classList.contains("completed")) {
+          todo.style.display = "flex";
+        } else {
+          todo.style.display = "none";
+        }
+    }
+  });
 }
