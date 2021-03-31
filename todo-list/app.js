@@ -48,7 +48,10 @@ function buttonClickHandler(e) {
 
   if (buttonClicked.classList[0] === "remove-btn") {
     const todo = buttonClicked.parentElement;
-    todo.remove();
+    todo.classList.toggle("deleting");
+    setTimeout(() => {
+      todo.remove();
+    }, 500);
   } else if (buttonClicked.classList[0] === "complete-btn") {
     const todo = buttonClicked.parentElement;
     todo.classList.toggle("completed");

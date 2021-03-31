@@ -67,6 +67,7 @@ form button:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: all 0.3s ease;
 }
 
 .todo li {
@@ -93,5 +94,11 @@ form button:hover {
 }
 
 .completed {
-  background: rgba(0, 0, 0, 0.2);
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+.deleting {
+  transform: translateY(8rem) rotateZ(20deg);
+  opacity: 0;
 }
